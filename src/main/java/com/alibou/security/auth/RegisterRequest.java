@@ -17,6 +17,7 @@ public class RegisterRequest {
   private String lastname;
   private String email;
   private String password;
+  private boolean mfaEnabled;
 
   @NotNull(message = "Role cannot be null")
   private Role role;
