@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {RegisterRequest} from '../models/register-request';
 import {AuthenticationResponse} from '../models/authentication-response';
 import {VerificationRequest} from '../models/verification-request';
+import {AuthenticationRequest} from '../models/authentication-request';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class AuthenticationService {
 
   verifyCode(verificationRequest : VerificationRequest){
     return this.http.post<AuthenticationResponse>(`${this.baseUrl}/verify2fa`, verificationRequest);
+  }
+
+  login(authRequest : AuthenticationRequest){
+    return this.http.post<AuthenticationResponse>(`${this.baseUrl}/authenticate`, authRequest);
   }
 
 }

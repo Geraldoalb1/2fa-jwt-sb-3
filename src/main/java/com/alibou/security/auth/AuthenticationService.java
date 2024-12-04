@@ -44,7 +44,6 @@ public class AuthenticationService {
                 .mfaEnabled(request.isMfaEnabled())
                 .build();
 
-        // if MFA enabled --> Generate Secret
         if(request.isMfaEnabled()){
             user.setSecret(twoFactorAuthenticationService.generateNewSecret());
         }
@@ -66,9 +65,7 @@ public class AuthenticationService {
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
-                        request.getPassword()
-                )
-        );
+                        request.getPassword()));
 
 
         var user = repository.findByEmail(request.getEmail()).orElseThrow();

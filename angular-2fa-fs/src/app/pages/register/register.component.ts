@@ -41,7 +41,7 @@ export class RegisterComponent {
           } else {
             this.msg = 'Account created successfully\n You will be redirected in 3 s';
             setTimeout(() => {
-              this.router.navigate(['login']);
+              this.router.navigate(['welcome']);
             }, 3000)
           }
         }

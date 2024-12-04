@@ -84,12 +84,12 @@
       id="validationCode"
       name="validationCode"
       required
-      [(ngModel)]="otpCode" )]
+      [(ngModel)]="otpCode"
     >
   </div>
   <button
     type="button"
     (click)="verifyTfa()"
-    [class.button-disabled]="otpCode.length < 6 "]
+    [class.button-disabled]="otpCode.length < 6 "
   >Verify code</button>
 </div>
